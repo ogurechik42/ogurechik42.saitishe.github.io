@@ -1,0 +1,384 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto+Condensed:ital,wght@0,355;1,355&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+body {
+  background-image: url("./images/ga.jpg");
+  font-family: "Roboto Condensed", serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.main {
+padding: 1em;
+}
+
+.slovo
+{
+font-size: 12em;
+color: black;
+display: flex;
+justify-content: center;
+text-shadow: -0 2px 4px black;
+opacity: 0;
+transform: translateY(50px);
+animation: css-animation-fadeInUp 2s ease-out forwards;
+}
+ 
+@keyframes css-animation-fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.header {
+display: flex;
+margin: 15px;
+justify-content: space-between;
+align-items: center;
+background-image: url("./images/fa.jpg");
+background-size: no-repeat;
+background-position: center;
+background-size: contain;
+height: 150px;
+width: auto;
+border-radius: 5rem;
+padding: 1.5em;
+box-shadow: 0 10px 6px rgba(0, 0, 0, 0.5);
+opacity: 0;
+transform: translateX(-200px);
+animation: css-animation-fadeInUp 2s ease-out forwards;
+}
+ 
+}
+.header__top {
+  display: flex;
+  align-items: center;
+  border-radius: 1.5rem;
+  padding: 20px 10px;
+}
+
+.header__title {
+  font-weight: 300;
+  font-size: 30px;
+}
+
+.header__logo {
+  width: 50px;
+}
+
+.header__nav {
+  backdrop-filter: blur(20px);
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 4rem;
+  border: medium none;
+  padding: 10px 15px;
+  width: auto;
+  height: auto;
+  font-weight: 700;
+}
+
+.header__nav-logo{
+  height: 40px;
+  width: auto;
+  border-radius: 2rem;
+  position: center;
+  text-align: center;
+}
+
+.knopochki {
+  margin: 1px 8px;
+  position: center;
+  cursor: pointer;
+  border: medium none;
+  background-color: transparent;
+  font-family: "Roboto Condensed", serif;
+  font-size: 35px;
+  font-weight: 700;
+  color: white;
+  padding: 5px 5px;
+  border-radius: 3.5rem;
+  width: auto;
+  height: 120px;
+  box-shadow: 0 10px 6px rgba(0, 0, 0, 0.5);
+}
+.knopochki2 {
+  margin: 1px 10px;
+  position: center;
+  cursor: pointer;
+  border: medium none;
+  background-color: transparent;
+  font-family: "Roboto Condensed", serif;
+  font-size: 25px;
+  font-weight: 700;
+  color: white;
+  padding: 5px 3px;
+  border-radius: 3.5rem;
+  width: 200px;
+  height: 120px;
+  box-shadow: 0 10px 6px rgba(0, 0, 0, 0.5);
+}
+.knopochki:focus {
+  background: linear-gradient(white, navy, darkred);
+}
+.knopochki2:focus {
+  background: linear-gradient(white, navy, darkred);
+}
+.knopochki:hover {
+  background: linear-gradient(white, navy, darkred);
+}
+.knopochki2:hover {
+  background: linear-gradient(white, navy, darkred);
+}
+.table-preview{
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  background-color: white;
+}
+.table-stats {
+  width: 900px;
+  border-collapse: collapse;
+  margin: 1rem 10px;
+  background-color: white;
+}
+.ssulka {
+display: inline-block;
+text-decoration: none;
+background: deepskyblue;
+color: white;
+padding: 3px 3px;
+border-radius: 15px;
+border: 4px solid white;
+margin: 1px 10px;
+box-shadow: 0 10px 6px rgba(0, 0, 0, 0.5);
+}
+.ssulka:hover {
+  transform: scale(1.2);
+}
+
+.ssulka2 {
+display: inline-block;
+text-decoration: none;
+background: navy;
+color: white;
+padding: 3px 3px;
+border-radius: 15px;
+border: 4px solid white;
+margin: 1px 3px;
+box-shadow: 0 10px 6px rgba(0, 0, 0, 0.5);
+}
+.ssulka2:hover {
+  transform: scale(1.2);
+}
+
+.tab-content {
+display: none;
+}
+  
+.tab-content.active {
+display: block;
+}
+  
+.slovecki {
+font-size: 2em;
+margin-bottom: 5px;
+text-shadow: -0 0.5px 2px black;
+transform: translateX(-100px);
+animation: css-animation-fadeInUp 0.7s ease-out forwards;
+}
+  
+.tekst {
+font-size: 1.7em;
+margin-bottom: 1em;
+}
+
+.table-edit{
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+.table-preview__head,
+.table-edit__head,
+.table-stats__head {
+  background-color: SteelBlue;
+  width: auto;
+  font-size: 18px;
+}
+.table-stats__body {
+  background-color: white;
+  width: auto;
+  border: 1px solid black;
+  padding: 0.7rem;
+  text-align: left;
+  height: 20px;
+}
+.table-preview__header,
+.table-edit__header,
+.table-stats__header,
+.table-preview__data,
+.table-edit__data,
+.table-stats__data {
+  border: 1px solid black;
+  padding: 0.5rem;
+  text-align: left;
+  height: 15px;
+}
+
+.table-edit__header:first-child,
+.table-edit__data:first-child {
+  width: 35%;
+}
+
+.table-edit__header:not(:first-child),
+.table-edit__data:not(:first-child) {
+  width: calc(80% / 7);
+}
+
+.knopkired {
+padding: 10px 20px;
+background-color: navy;
+color: white;
+font-size: 16px;
+font-weight: bold;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+margin: 0.5rem 0.3rem;
+box-shadow: 0 2px 4px black;
+}
+.knopkired:hover {
+  background-color: #8B0000;
+}
+
+.vubortablic {
+width: 175px;
+padding: 5px;
+font-size: 16px;
+border: 1px solid black;
+border-radius: 5px;
+transition: all 0.3s ease;
+box-shadow: 0 2px 4px black;
+}
+.vubortablic:focus {
+border-color: navy;
+}
+  
+.table-edit__input {
+width: 100%;
+padding: 6px 10px;
+font-size: 16px;
+border: 1px solid black;
+box-sizing: border-box;
+outline: none;
+transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+  
+.table-edit__input:focus {
+background-color: AliceBlue;
+box-shadow: 0 0 7px black;
+}
+
+
+.file-upload {
+  display: none;
+}
+
+.knopkafail {
+display: inline-block;
+padding: 10px 20px;
+background-color: navy;
+box-shadow: 0 2px 4px black;
+color: white;
+font-size: 16px;
+font-weight: bold;
+text-align: center;
+cursor: pointer;
+border-radius: 5px;
+border: none;
+transition: background-color 0.3s ease;
+}
+.udalit {
+display: inline-block;
+padding: 10px 20px;
+background-color: darkred;
+box-shadow: 0 2px 4px black;
+color: white;
+font-size: 16px;
+font-weight: bold;
+text-align: center;
+cursor: pointer;
+border-radius: 5px;
+border: none;
+transition: background-color 0.7s ease;
+}
+.udalit::before {
+  content: "Удалить 🗑";
+}
+.udalit:hover::before {
+  content: "Уверены?";
+}
+
+.knopkafail:hover {
+  background-color: #8B0000;
+}
+
+.file-upload__filename {
+  font-size: 14px;
+  color: var(--color-text-light);
+  margin-top: 10px;
+}
+
+.bg-red {
+  background-color:Crimson;
+}
+
+.bg-red:hover {
+  background-color: black;
+color: white;
+}
+
+.delete-button{
+  font-weight: 900;
+  background-color: Crimson;
+}
+
+.delete-button:hover{
+  background-color: black;
+color: white;
+}
+
+
+
+.graphic-stats {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.graphic-stats__chart {
+  max-width: 300px;
+  max-height: 200px;
+}
+
+.graphic-stats__chart :hover {
+  transform: scale(1.2);
+}
+
+.vidos {
+position: center;
+margin: 10px 650px;
+width: auto;
+height: 500px;
+}
+
+.avtor {
+width: 280px;
+height: auto;
+margin-bottom: 3px;
+border-radius: 5.5rem;
+border: 2px solid black;
+}

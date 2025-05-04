@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Дневник</title>
+    <link rel="icon" href="./images/p.jpg" />
+    <link rel="stylesheet" href="./css.css" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="header__nav">
+        <button class="knopochki" onclick="handleButtonClick('upload')"> Загрузить данные</button>
+        <button class="knopochki" onclick="handleButtonClick('edit')"> Редактирование таблицы</button>
+        <button class="knopochki" onclick="handleButtonClick('table-stats'); document.querySelector('#table-stats-select').value = 'informatics'; handleSubjectChange();"> Статистика оценок</button>
+        <button class="knopochki" onclick="handleButtonClick('graphic-stats'); updateGraphicStats(2);"> Графики</button>
+        <button class="knopochki2" onclick="handleButtonClick('help')"><img class="header__nav-logo" src="./images/vopros.jpg" /><br/>Помощь</button>
+        <button class="knopochki2" onclick="handleButtonClick('about_me')"><img class="header__nav-logo" src="./images/infa.jpg" /><br/>О сайте</button>
+        <button class="knopochki2" onclick="handleButtonClick('prekol')"><img class="header__nav-logo" src="./images/logo.jpg" /><br/>Прикол</button>
+    </header>
+    <main class="main">
+      <section id="home_page" class="tab-content active"><h3 class="slovo">ДНЕВНИК</h3></div></section>
+      <section id="upload" class="tab-content"><h2 class="slovecki">Загрузка данных об оценках</h2>
+        <input type="file" id="file-upload" class="file-upload" accept=".csv, .txt, .xlsx" onchange="updateFileName()"/>
+        <label for="file-upload" class="knopkafail">Выберите файл</label>
+        <button type="button" class="knopkafail" onclick="uploadFile()"> Загрузить </button>
+        <p id="file-name" class="file-upload__filename"></p>
+        <table id="file-preview" class="table-preview">
+          <thead class="table-preview__head"><tr class="table-edit__row">
+              <th class="table-preview__header">ФИО</th>
+              <th class="table-preview__header">Класс</th>
+              <th class="table-preview__header">История</th>
+              <th class="table-preview__header">Русский</th>
+              <th class="table-preview__header">Математика</th>
+              <th class="table-preview__header">Литература</th>
+              <th class="table-preview__header">Физра</th>
+            </tr>
+          </thead>
+          <tbody class="table-preview__body"><tr class="table-preview__row">
+              <td class="table-preview__data"></td>
+              <td class="table-preview__data"></td>
+              <td class="table-preview__data"></td>
+              <td class="table-preview__data"></td>
+              <td class="table-preview__data"></td>
+              <td class="table-preview__data"></td>
+              <td class="table-preview__data"></td>
+            </tr>
+          </tbody>
+        </table>
+	<button type="button" class="udalit" onclick="clearFileUpload()"></button></section>
+      <section id="edit" class="tab-content"><h2 class="slovecki">Рекдактировать</h2>
+        <table id="file-add" class="table-edit">
+          <thead class="table-edit__head">
+            <tr class="table-edit__row">
+              <th class="table-edit__header">ФИО</th>
+              <th class="table-edit__header">Класс</th>
+              <th class="table-edit__header">История</th>
+              <th class="table-edit__header">Русский</th>
+              <th class="table-edit__header">Математика</th>
+              <th class="table-edit__header">Литература</th>
+              <th class="table-edit__header">Физра</th>
+            </tr>
+          </thead>
+          <tbody class="table-edit__body"></tbody>
+        </table>
+        <button id="add-row-button" class="knopkired">Добавить строку</button><button id="download-button" class="knopkired">Скачать таблицу</button><button type="button" class="knopkired" onclick="clearFileUpload()">Удалить</button>
+      </section>
+      <section id="table-stats" class="tab-content"><h2 class="slovecki">Статистика успеваемости</h2>
+        <p class="tekstpomosh">Выберите предмет: <select id="table-stats-select" class="vubortablic"></p>
+          <option value="istoria">История</option>
+          <option value="Russkii">Русский</option>
+          <option value="mathematics">Математика</option>
+          <option value="literature">Литература</option>
+          <option value="fisra">Физра</option>
+        </select>
+        </select>
+        <table id="table_stats_classes" class="table-stats">
+          <thead class="table-stats__head">
+            <tr class="table-stats__row">
+              <th class="table-stats__header">Класс</th>
+              <th class="table-stats__header">Средняя оценка</th>
+              <th class="table-stats__header">Медиана</th>
+              <th class="table-stats__header">5</th>
+              <th class="table-stats__header">4</th>
+              <th class="table-stats__header">3</th>
+              <th class="table-stats__header">2</th>
+            </tr>
+          </thead>
+          <tbody class="table-stats__body"></tbody></table>
+        <table id="table_stats_all" class="table-stats">
+          <thead class="table-stats__head">
+            <tr class="table-stats__row">
+              <th class="table-stats__header">Средняя оценка</th>
+              <th class="table-stats__header">Медиана</th>
+              <th class="table-stats__header">5</th>
+              <th class="table-stats__header">4</th>
+              <th class="table-stats__header">3</th>
+              <th class="table-stats__header">2</th>
+            </tr>
+          </thead>
+          <tbody class="table-stats__body">
+            <tr class="table-preview__row">
+              <td class="table-preview__data"></td>
+              <td class="table-preview__data"></td>
+              <td class="table-preview__data"></td>
+              <td class="table-preview__data"></td>
+              <td class="table-preview__data"></td>
+              <td class="table-preview__data"></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section id="graphic-stats" class="tab-content"><h2 class="slovecki">Графическая статистика</h2>
+        <p class="tekstpomosh">Выберите предмет: <select id="graphic-stats-select" class="vubortablic"></p>
+          <option value="istoria">История</option>
+          <option value="Russkii">Русский</option>
+          <option value="mathematics">Математика</option>
+          <option value="literature">Литература</option>
+          <option value="fisra">Физра</option>
+        </select>
+        <div class="graphic-stats">
+          <div class="graphic-stats__item"> <h3 class="graphic-stats__subtitle">Количество 5</h3>
+            <canvas id="count-stats-chart-5" class="graphic-stats__chart"></canvas> </div>
+	  <div class="graphic-stats__item"> <h3 class="graphic-stats__subtitle">Количество 4</h3>
+            <canvas id="count-stats-chart-4" class="graphic-stats__chart"></canvas> </div>
+          <div class="graphic-stats__item"> <h3 class="graphic-stats__subtitle">Количество 3</h3>
+            <canvas id="count-stats-chart-3" class="graphic-stats__chart"></canvas> </div>
+          <div class="graphic-stats__item"> <h3 class="graphic-stats__subtitle">Количество 2</h3>
+            <canvas id="count-stats-chart-2" class="graphic-stats__chart"></canvas> </div>
+	  <div class="graphic-stats__item"> <h3 class="graphic-stats__subtitle">Средняя оценка по классам</h3>
+            <canvas id="class-stats-chart" class="graphic-stats__chart"></canvas> </div>
+	  <div class="graphic-stats__item"> <h3 class="graphic-stats__subtitle">Процент 5</h3>
+            <canvas id="gr5" class="graphic-stats__chart"></canvas> </div>
+	  <div class="graphic-stats__item"> <h3 class="graphic-stats__subtitle">Процент 4</h3>
+            <canvas id="gr4" class="graphic-stats__chart"></canvas> </div>
+	  <div class="graphic-stats__item"> <h3 class="graphic-stats__subtitle">Процент 3</h3>
+            <canvas id="gr3" class="graphic-stats__chart"></canvas> </div>
+	  <div class="graphic-stats__item"> <h3 class="graphic-stats__subtitle">Процент 2</h3>
+            <canvas id="gr2" class="graphic-stats__chart"></canvas> </div>
+	  <div class="graphic-stats__item"> <h3 class="graphic-stats__subtitle">Медиана по классам</h3>
+            <canvas id="median-stats-chart" class="graphic-stats__chart"></canvas> </div>
+          <div class="graphic-stats__item"> <h3 class="graphic-stats__subtitle">Общая статистика </h3>
+            <canvas id="all-stats-chart" class="graphic-stats__chart"></canvas> </div>
+        </div></section>
+      <section id="help" class="tab-content"><h2 class="slovecki">Помощь</h2><p class="tekst">
+          Данный сайт является пробной версией дневника<br/>
+	  Нажимайте на кнопки чтобы перейти в различные разделы сайта<br/>
+	  Во вкладке загрузить данные вы можете добавить свою таблицу с оценками<br/>
+	  Во вкладке редактирование вы можете создать новую таблицу или редактировать прежнюю<br/>
+	  Во вкладке статистика оценок представлена статистика всех классов по оценкам<br/>
+	  Во вкладке графики представлены графики по статистике оценок всех классов<br/>
+          Во вкладке помощь вы сейчас находитесь<br/>
+	  Во вкладке о сайте написано про сайт и его создателя<br/>
+	  Во владке прикол находится прикол<br/>
+	  Если еще остались вопросы писать в телеграм
+         </p></section>
+      <section id="about_me" class="tab-content"><div><h2 class="slovecki">О сайте</h2><p class="tekst">
+	  Данный сайт сделан для сдачи курсового проекта<br/>
+          Разработчик:Епишин Михаил Артемович<br/>
+	  Контактные данные: +79832182375<br/>
+	  Организация: Сибгути безопасность<br/>
+	  Ссылки:<a href="https://t.me/zilibobka_m" class="ssulka">Телеграм</a><a href="https://vk.com/feed" class="ssulka2">ВК</a><br/>
+	  Автор:
+        </p></div>
+        <div><img src="./images/ia.jpg" class="avtor"/></div>
+      </section>
+	<section id="prekol" class="tab-content">
+        <video class="vidos" controls poster="./images/pc.jpg"><source src="./images/vh.mp4" type="video/mp4"></video></section>
+    </main>
+    <script src="main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </body>
+</html>
